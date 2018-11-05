@@ -40,5 +40,13 @@ you will see MOOSApp pMarinneViwer pop out and then press button "deploy"
 container# cd /root/moos-ivp/robotx-mit-2014/ATTIC/missions_test/Task1
 container# ./launch.sh
 ```
-press button "deploy"
+press button "deploy" </br>
 ![RobotX2014Task1](https://github.com/tonycar12002/moos-ivp-nctu-docker/blob/master/Task1.png)
+
+
+## Still Working On
+This is the beta version of our docker file. We found that "nsplug" will cause some fatal errors, we are still fixing the problems. 
+
+## Contacts
+If you have any question please contact to us.
+* Tony Hsiao <tonycar12002@gmail.com>
