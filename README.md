@@ -18,8 +18,8 @@ $ docker pull tonycar12002/moos-ivp-nctu
 ## How to run
 ```
 $ xhost +local:root
-$ sudo service nvidia-docker start
-$ nvidia-docker run -it --rm --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" moos-ivp-nctu
+$ docker run -it --rm -p 8080:80 moos-ivp-nctu
+Open a browser and type docker_ip:port_num, ex: http://172.17.0.1:8080/
 ```
 
 ## Test the moos-ivp 

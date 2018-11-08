@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM dorowu/ubuntu-desktop-lxde-vnc:xenial
 
 # Set default shell to bash
 SHELL ["/bin/bash", "-c"]
@@ -14,7 +14,7 @@ RUN rm -rf /var/lib/apt/lists/* &&  \
     apt-get update -qq && apt-get install --assume-yes apt-utils > /dev/null &&  \
 	apt-get install -y -qq g++ cmake xterm git > /dev/null && \
     apt-get install -y -qq build-essential libeigen3-dev > /dev/null && \
-    apt-get install -y -qq vim ibfltk1.3-dev freeglut3-dev libpng12-dev libjpeg-dev > /dev/null && \
+    apt-get install -y -qq vim ibfltk1.3-dev freeglut3-dev libpng-dev libjpeg-dev > /dev/null && \
     apt-get install -y -qq libxft-dev libxinerama-dev libtiff5-dev > /dev/null 
     
 # MOOS
@@ -30,6 +30,8 @@ RUN rm -rf /var/lib/apt/lists/* &&  \
 
 
 WORKDIR ${MOOSIVP}
+
+RUN apt-get install -y python-pip python-numpy > /dev/null 
 
 # Opencv 2.4
 RUN git clone https://github.com/tonycar12002/opencv-2.4.9-pod.git
@@ -59,6 +61,4 @@ RUN apt-get update && \
 
 EXPOSE 9000
 
-LABEL com.nvidia.volumes.needed="nvidia_driver"
-ENV PATH /usr/local/nvidia/bin:${PATH}
-ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+WORKDIR ${MOOSIVP}/ivp/missions/s1_alpha
